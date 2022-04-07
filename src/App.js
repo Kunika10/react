@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from './Header';
+import "@fontsource/cormorant-garamond";
+import ScrollToTop from "./ScrollToTop";
+import Home from "./Home";
+import Product from "./Product";
+import Sidebar  from "./Sidebar";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+    <Header/>
+    <ScrollToTop/>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="product" element={<Product/>}/>
+      <Route path="Sidebar" element={<Sidebar/>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 

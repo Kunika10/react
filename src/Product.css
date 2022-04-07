@@ -1,0 +1,14 @@
+.product_section {
+    position: relative;
+}
+.product_view {
+    padding: 70px 0px 140px;
+    position: relative;
+}
+.pro_sec {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    margin-bottom: -110px;
+}
