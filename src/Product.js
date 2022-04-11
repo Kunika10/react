@@ -182,7 +182,9 @@ function handleClick(event) {
                                 <li>
                                     <div className='product_inner'>
                                         <div className='product_image'>
-                                            <img src={product_img1} alt="" />
+                                        <Link to='productview'>
+                                            <img src={product_img1}/>
+                                            </Link>
                                         </div>
                                         <div className='product_content'>
                                             <h6>Brown Slippers</h6>

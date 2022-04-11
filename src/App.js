@@ -5,7 +5,7 @@ import "@fontsource/cormorant-garamond";
 import ScrollToTop from "./ScrollToTop";
 import Home from "./Home";
 import Product from "./Product";
-import Sidebar  from "./Sidebar";
+import Productview from "./Productview";
 
 
 
@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="product" element={<Product/>}/>
-      <Route path="Sidebar" element={<Sidebar/>}/>
+      <Route path="productview" element= {<Productview/>}/>
     </Routes>
     </BrowserRouter>
     </>
