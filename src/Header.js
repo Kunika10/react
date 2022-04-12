@@ -26,7 +26,7 @@ const useStyles = makeStyles ({
     width: 'auto',
   },
   cart: {
-    width: 250,
+    width: 350,
   },
   fullCart: {
     width: 'auto',
@@ -38,7 +38,7 @@ function Header(){
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
-    left: false,
+    right1: false,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -109,7 +109,11 @@ function Header(){
       onKeyDown={toggleDrawer(anchor, false)}>
       <div className='sidebar_inner_cart'>
         <p>No products in the cart.</p>
+        <div className='cross_btn'>
+        <AiOutlineClose className='cross_button'/>
+        </div>
       </div>
+      
     </div>
   );
 
@@ -118,42 +122,42 @@ function Header(){
   return (
     <>
       <div className='header-section'>
-      <header className='triss_header'>
-        <div className='navigation'>
-         <ul className=''>
-         <li>
-         <Link to="/" className='nav-sec'>Valeska</Link>
-         </li>
-         </ul>
-         <ul className='navigation_ul'>
-             <li><Link to="/" className='nav-sec'> Home</Link></li>
-             <li><Link to="/" className='nav-sec'>Pages</Link></li>
-             <li><Link to="product" className='nav-sec'>Shop</Link></li>
-             <li><Link to="/" className='nav-sec'>Blog</Link></li>
-             <li><Link to="/" className='nav-sec'>Landing</Link></li>
-             <li>
-             <IconButton type="submit" className={classes.iconButton} aria-label="search" style={{color:'#000'}}>
-      <SearchOutlinedIcon/>
-      </IconButton>
-          <InputBase
-        className={classes.input}
-        placeholder="Search Google Maps"
-        inputProps={{ 'aria-label': 'search google maps' }}/>
-          </li>
-             <li className='cart_section'>
-             {['right','right'].map((anchor,index) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{index==0 ? <LocalMallOutlinedIcon/>: <TocOutlinedIcon/> }</Button>
-          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-          { index==0 ? list(anchor) : cart(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))} 
-     </li>
-             </ul>
-          </div>
+        <header className='triss_header'>
+          <div className='navigation'>
+          <Link to="/" className='logo_title'>Valeska</Link>
+          <ul className='navigation_ul'>
+              <li><Link to="/" className='nav-sec'> Home</Link></li>
+              <li><Link to="/" className='nav-sec'>Pages</Link></li>
+              <li><Link to="product" className='nav-sec'>Shop</Link></li>
+              <li><Link to="/" className='nav-sec'>Blog</Link></li>
+              <li><Link to="/" className='nav-sec'>Landing</Link></li>
+              <li>
+                      <IconButton type="submit" className={classes.iconButton} aria-label="search" style={{color:'#000'}}>
+                      <SearchOutlinedIcon/>
+                      </IconButton>
+                          <InputBase
+                        className={classes.input}
+                        placeholder="Search Google Maps"
+                        inputProps={{ 'aria-label': 'search google maps' }}
+                      />
+                      
+                          </li>
+                            <li className='cart_section'>
+                            {['right','right1'].map((anchor,index) => (
+                                
+                        <React.Fragment key={anchor}>
+                        {console.log(anchor)}
+                          <Button onClick={toggleDrawer(anchor, true)}>{index==0 ? <LocalMallOutlinedIcon/>: <TocOutlinedIcon/> }</Button>
+                          <Drawer anchor={'right'} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                          { index == 0 ? cart(anchor) : list(anchor)}
+                          </Drawer>
+                        </React.Fragment>
+                      ))} 
+                    </li>
+              </ul>
+            </div>
           </header>
-      </div>
+        </div>
     </>
   )
 }
