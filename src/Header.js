@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Offcanvas from 'react-bootstrap/Offcanvas'
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import TocOutlinedIcon from '@material-ui/icons/TocOutlined';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { alpha, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
@@ -14,7 +13,12 @@ import sideimg2 from './images/menu-img4.jpg'
 import sideimg3 from './images/menu-img1.jpg'
 import sideimg4 from './images/menu-img2.jpg'
 import { AiOutlineClose } from "react-icons/ai";
-const useStyles = makeStyles({
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+
+
+
+const useStyles = makeStyles ({
   list: {
     width: 1850,
   },
@@ -26,7 +30,8 @@ const useStyles = makeStyles({
   },
   fullCart: {
     width: 'auto',
-  }
+  },
+
 });
 
 function Header(){
@@ -107,6 +112,8 @@ function Header(){
       </div>
     </div>
   );
+
+
   
   return (
     <>
@@ -124,8 +131,16 @@ function Header(){
              <li><Link to="product" className='nav-sec'>Shop</Link></li>
              <li><Link to="/" className='nav-sec'>Blog</Link></li>
              <li><Link to="/" className='nav-sec'>Landing</Link></li>
-             <li><Link to="/" className='nav-sec'><SearchOutlinedIcon/></Link></li>
              <li>
+             <IconButton type="submit" className={classes.iconButton} aria-label="search" style={{color:'#000'}}>
+      <SearchOutlinedIcon/>
+      </IconButton>
+          <InputBase
+        className={classes.input}
+        placeholder="Search Google Maps"
+        inputProps={{ 'aria-label': 'search google maps' }}/>
+          </li>
+             <li className='cart_section'>
              {['right','right'].map((anchor,index) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{index==0 ? <LocalMallOutlinedIcon/>: <TocOutlinedIcon/> }</Button>

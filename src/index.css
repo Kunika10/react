@@ -211,3 +211,6 @@ padding: 22px 25px;
   cursor: pointer;
   text-decoration: underline;
 }
+.cart_section {
+  padding: 0 !important;
+}
