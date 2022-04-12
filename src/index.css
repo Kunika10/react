@@ -36,8 +36,181 @@ z-index: 100;
 .sidebar_button.MuiButton-text {
 	padding: 6px 8px;
 	position: absolute;
-	font-size: 0;
 	top: 50px;
 	right: 360px;
 	z-index: 1;
+  opacity: 0;
+}
+.sidebar_inner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 15px 16px 7px;
+  text-align: center;
+  background-color: #000;
+  z-index: 9999;
+  transition: all .6s cubic-bezier(.77,0,.175,1);
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  color: #fff;
+}
+.sidebar {
+  position: absolute;
+  top: 42px;
+  right: 71px;
+  display: block;
+  z-index: 1000;
+  color: #9c9c9c;
+  
+}
+.product_list_category {
+  position: relative;
+display: inline-block;
+vertical-align: top;
+padding: 10px 40px 7px;
+}
+.side_img {
+  transform: scale(1.04);
+transition: transform .64s cubic-bezier(.46,0,.36,.99);
+will-change: transform;
+}
+.product_list_image {
+  transition-delay: 420ms;
+}
+.product_list_content h5 {
+  font-family: "Cormorant Garamond",serif;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1.03em;
+  font-weight: 400;
+  margin: 40px 0;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+.side_area_inner {
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 200px;
+}
+.sidebar .side_close_icon {
+	width: 60px;
+	height: 60px;
+}
+.cart_close_btn .btn-close {
+	position: absolute;
+	top: 110px;
+	left: 0;
+	opacity: 0;
+  width: 14px;
+  height: 13px;
+}
+.cart_btn {
+	padding: 6px 8px !important;
+	position: absolute !important;
+	top: 40px;
+	right: 435px;
+	z-index: 1;
+  opacity: 0;
+}
+.home_popup {
+	position: fixed;
+	bottom: 5%;
+	right: 5%;
+	max-width: calc(100% - 10%);
+	opacity: 1;
+	z-index: 10;
+	transform: translateY(24px);
+	transition: transform .52s cubic-bezier(.35,.18,.07,1.04),opacity .52s cubic-bezier(.35,.18,.07,1.04),visibility .52s cubic-bezier(.35,.18,.07,1.04);
+	background-color: rgba(255,255,255,.9);
+	display: flex;
+}
+.home_modal .modal-content {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 415px;
+    background-color: #e9e7db;
+}
+.modal_cross_btn {
+	position: absolute;
+	top: -18px;
+	right: -11px;
+	display: block !important;
+	color: #000;
+	z-index: 10;
+}
+.modal_cross_btn button {
+	position: absolute;
+	top: 30px;
+	left: 20px;
+	width: 20px;
+	height: 20px;
+	opacity: 0;
+}
+.modal-content {
+  position: relative;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+text-align: left;
+background-size: cover;
+padding: 22px 25px;
+}
+.modal_title {
+    font-family: "Cormorant Garamond",serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 24px;
+    font-weight: 400;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0 0 9px;
+    max-width: 210px;
+    line-height: 24px;
+}
+.modal_subtitle {
+  color: #353535;
+  margin: 0 0 26px; 
+}
+.subscribe-form {
+  background-color: #e9e7db;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 10px;
+  max-width: 650px;
+  display: inline-block;
+  width: 100%;
+}
+.email_form {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.subscribe-form-group button[type="submit"], input[type="submit"] {
+  position: relative;
+  margin-left: 10px;
+  height: 100%;
+  margin-top: 6px;
+  padding: 0 !important;
+  color: #000;
+  background-color: transparent;
+  border: 0;
+  text-transform: uppercase; 
+  font-family: Yantramanav,sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: .1em;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.cart_section {
+  padding: 0 !important;
 }

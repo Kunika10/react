@@ -4,29 +4,41 @@ import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import TocOutlinedIcon from '@material-ui/icons/TocOutlined';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { alpha, makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-const useStyles = makeStyles({
+import ClearOutlinedIcon from '@material-ui/icons/ClearOutlined';
+import sideimg1 from './images/menu-img3.jpg'
+import sideimg2 from './images/menu-img4.jpg'
+import sideimg3 from './images/menu-img1.jpg'
+import sideimg4 from './images/menu-img2.jpg'
+import { AiOutlineClose } from "react-icons/ai";
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+
+
+
+const useStyles = makeStyles ({
   list: {
     width: 1850,
   },
   fullList: {
     width: 'auto',
   },
+  cart: {
+    width: 250,
+  },
+  fullCart: {
+    width: 'auto',
+  },
+
 });
 
 function Header(){
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
+    left: false,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -36,6 +48,7 @@ function Header(){
 
     setState({ ...state, [anchor]: open });
   };
+ 
 
   const list = (anchor) => (
     <div
@@ -44,20 +57,66 @@ function Header(){
       })}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
+      onKeyDown={toggleDrawer(anchor, false)}>
       <div className='sidebar_inner'>
-        
+        <div className='sidebar'>
+          <ClearOutlinedIcon className='side_close_icon'></ClearOutlinedIcon>
+        </div>
+        <div className='side_area_inner'>
+          <div className='product_list_category'>
+            <div className='product_list_image'>
+              <img src={sideimg1} alt="" className='side_img' />
+            </div>
+            <div className='product_list_content'>
+              <h5>Vests</h5>
+            </div>
+          </div>
+          <div className='product_list_category'>
+            <div className='product_list_image'>
+              <img src={sideimg2} alt="" className='side_img'/>
+            </div>
+            <div className='product_list_content'>
+              <h5>Sales</h5>
+            </div>
+          </div>
+          <div className='product_list_category'>
+            <div className='product_list_image'>
+              <img src={sideimg3} alt="" className='side_img'/>
+            </div>
+            <div className='product_list_content'>
+              <h5>New Items</h5>
+            </div>
+          </div>
+          <div className='product_list_category'>
+            <div className='product_list_image'>
+              <img src={sideimg4} alt="" className='side_img'/>
+            </div>
+            <div className='product_list_content'>
+              <h5>Fashion</h5>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  );
+  const cart = (anchor) => (
+    <div
+      className={clsx(classes.cart, {
+        [classes.fullCart]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}>
+      <div className='sidebar_inner_cart'>
+        <p>No products in the cart.</p>
       </div>
-);
+    </div>
+  );
 
 
+  
   return (
     <>
-
-
-
       <div className='header-section'>
       <header className='triss_header'>
         <div className='navigation'>
@@ -72,21 +131,25 @@ function Header(){
              <li><Link to="product" className='nav-sec'>Shop</Link></li>
              <li><Link to="/" className='nav-sec'>Blog</Link></li>
              <li><Link to="/" className='nav-sec'>Landing</Link></li>
-             <li><Link to="/" className='nav-sec'><SearchOutlinedIcon/></Link></li>
-             <li><Link to="/" className='nav-sec'><LocalMallOutlinedIcon/></Link> </li>
-             <li><Link to=""  className='nav-sec'><TocOutlinedIcon/>
-             
-             
-             {['right'].map((anchor) => (
+             <li>
+             <IconButton type="submit" className={classes.iconButton} aria-label="search" style={{color:'#000'}}>
+      <SearchOutlinedIcon/>
+      </IconButton>
+          <InputBase
+        className={classes.input}
+        placeholder="Search Google Maps"
+        inputProps={{ 'aria-label': 'search google maps' }}/>
+          </li>
+             <li className='cart_section'>
+             {['right','right'].map((anchor,index) => (
         <React.Fragment key={anchor}>
-          <Button className='sidebar_button' onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)}>{index==0 ? <LocalMallOutlinedIcon/>: <TocOutlinedIcon/> }</Button>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-            {list(anchor)}
+          { index==0 ? list(anchor) : cart(anchor)}
           </Drawer>
         </React.Fragment>
-        
       ))} 
-      </Link></li>
+     </li>
              </ul>
           </div>
           </header>
