@@ -6,6 +6,9 @@ import TextField from '@material-ui/core/TextField';
 import { SubscriptionsRounded } from "@material-ui/icons";
 import axios from "axios";
 import { useNavigate} from 'react-router-dom';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -32,6 +35,13 @@ export default function Homemodal () {
       document.getElementById("contact-form").reset();
       navigate.replace('/submit')
     };
+    const [state, setState] = React.useState({
+      checkedB: false,
+    });
+  
+    const handleChange = (event) => {
+      setState({ ...state, [event.target.name]: event.target.checked });
+    };
   return (
     <>
             <div className='home_popup'>
@@ -52,7 +62,10 @@ export default function Homemodal () {
                           <Button variant="contained" size="large" type="submit" className={classes.button} endIcon={<SubscriptionsRounded />}> Subscribe</Button>
                         </div>
                       </div>
-                    </form>
+            </form>
+                    <FormControlLabel
+        control={
+          <Checkbox checked={state.checkedB} onChange={handleChange} name="checkedB" color="primary"/>} label="Disable This Pop-up"/>
             </Modal.Body>
         </div>
           </div>

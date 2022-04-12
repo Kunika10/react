@@ -28,7 +28,8 @@ z-index: 100;
 	float: right;
 }
 .navigation {
-  width: 80%;
+	width: 80%;
+	padding: 20px;
 }
 .nav-sec {
   color: #000;
@@ -213,4 +214,24 @@ padding: 22px 25px;
 }
 .cart_section {
   padding: 0 !important;
+}
+.sidebar_inner_cart p {
+	font-size: 20px;
+	padding-top: 20px;
+	text-align: left;
+  padding-left: 30px;
+}
+.cross_btn {
+	position: absolute;
+	top: 24px;
+	right: 41px;
+}
+.cross_button {
+	width: 50px;
+	height: 24px;
+}
+.logo_title {
+	color: #000;
+	font-size: 20px;
+	font-weight: 700;
 }
