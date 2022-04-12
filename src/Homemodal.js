@@ -6,9 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import { SubscriptionsRounded } from "@material-ui/icons";
 import axios from "axios";
 import { useNavigate} from 'react-router-dom';
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
